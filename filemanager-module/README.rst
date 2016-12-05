@@ -1,5 +1,5 @@
-How To Use It
-==================
+How To Use ``fileManager`` module
+==================================
 
 This module is for using our jquery plugin 'FileManager' inside AngularJS applications.
 
@@ -12,8 +12,10 @@ Just put a tag like the following where need it in the html paga::
 
     <form id="form1"></form>
 
-and on javascript just inject the **FileManagerService** into the service or controller and call the **upload** function::
+On javascript just import the module **fileManager** 
+and inject the **FileManagerService** into the service or controller and call the **upload** function::
 
+    angular.module("app", ['fileManager'])
     .service("JobAppViewService", ['FileManagerService', function(fileManagerService){
         fileManagerService.upload()
     });

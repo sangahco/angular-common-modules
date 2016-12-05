@@ -47,7 +47,8 @@
     }])
 
     .component('login', {
-        templateUrl: 'commons/login.template.jsp',
+        // change the path to the template
+        templateUrl: 'login-module/login.template.jsp',
         controller: 'LoginController'
     });
 

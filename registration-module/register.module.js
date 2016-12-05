@@ -1,7 +1,7 @@
 (function(){
     "use strict";
 
-    angular.module("register", ['jobApp', 'login', 'httpRequest', 'locale'])
+    angular.module("register", ['login', 'httpRequest', 'locale'])
 
     .service('RegisterService', ['$log', '$httpParamSerializer', '$rootScope', 'LoginService', 'HttpRequestService',
     function($log, $httpParamSerializer, $rootScope, loginService, httpRequest ){
@@ -27,25 +27,11 @@
     }])
 
     .component('register', {
-        templateUrl: 'commons/register.template.jsp',
-        controller: ['$log', '$scope', 'RegisterService', 'JobAppService', 
-        function($log, $scope, registerService, jobAppService ){
+        // change the path to the template
+        templateUrl: 'registration-module/register.template.jsp',
+        controller: ['$log', '$scope', 'RegisterService', 
+        function($log, $scope, registerService ){
             var $ctrl = this;
-
-            $scope.user = {
-                tos_acc: "Y",  // skip terms of service page
-                pubct_div: 4
-            };
-
-            $scope.$watch('user.user_no', function(nvalue, ovalue){
-                // we set the email as the user name
-                $scope.user.comp_email = nvalue;
-            });
-
-            jobAppService.load_positions()
-            .then(function(data){
-                $ctrl.job_positions = data;
-            });
 
             this.register = function(form){
                 if( form.$valid ) {  // check form validation
