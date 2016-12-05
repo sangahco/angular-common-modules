@@ -1,10 +1,10 @@
 (function(){
     "use strict";
 
-    angular.module("register", ['login', 'httpRequest', 'locale'])
+    angular.module("register", ['httpRequest', 'locale'])
 
-    .service('RegisterService', ['$log', '$httpParamSerializer', '$rootScope', 'LoginService', 'HttpRequestService',
-    function($log, $httpParamSerializer, $rootScope, loginService, httpRequest ){
+    .service('RegisterService', ['$log', '$httpParamSerializer', '$rootScope', 'HttpRequestService',
+    function($log, $httpParamSerializer, $rootScope, httpRequest ){
         return {
 
             register: function(user){
@@ -17,9 +17,7 @@
                         'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }).then(function(response){
-                    loginService.login(user).then(function(){
-                        $rootScope.$broadcast("afterRegistrationSuccess", user);
-                    });
+                    $rootScope.$broadcast("afterRegistrationSuccess", user);
                 });
             }
 
