@@ -6,3 +6,6 @@ AngularJS reusable modules to use in other projects
 #. `login module <login-module/README.rst>`_
 #. `httpRequest module <http-request-module/README.rst>`_
 #. `filemanager module <filemanager-module/README.rst>`_
+
+
+.. include:: filemanager-module/README.rst
