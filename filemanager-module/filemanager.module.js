@@ -11,7 +11,7 @@
             link: function(scope, element, attrs) {
                 scope.$watch('file_seq', function(value){
                     if( !value ) return;  // skip if value is blank/undefined
-
+                    $log.log("#1111");
                     var fm = element.fileManager({
                         hide_header: true,
                         hide_webhard: true,
