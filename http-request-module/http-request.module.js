@@ -11,10 +11,10 @@
                 var deferred = $q.defer();
 
                 $http(opts).then(function(response){
-                    $rootScope.error = null;
                     if( response.data.error ) 
                     {
                         $rootScope.error = response.data.error;
+                        $rootScope.$broadcast('httpRequestOnError' );
                         deferred.reject(response);
                     } 
                     else 
